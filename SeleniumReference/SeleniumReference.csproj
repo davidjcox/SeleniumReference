@@ -22,6 +22,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
+    <PackageReference Include="Reqnroll" Version="3.0.2" />
+    <PackageReference Include="Reqnroll.NUnit" Version="3.0.2" />
     <PackageReference Include="Selenium.Chrome.WebDriver" Version="85.0.0" />
     <PackageReference Include="Selenium.Support" Version="4.35.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.35.0" />
@@ -34,7 +36,6 @@
   <ItemGroup>
     <Folder Include="FeatureFiles\" />
     <Folder Include="TestObjects\" />
-    <Folder Include="PageObjects\" />
   </ItemGroup>
 
 </Project>
