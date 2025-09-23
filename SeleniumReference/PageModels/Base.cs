@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace SeleniumReference.PageObjects
+namespace SeleniumReference.PageModels
 {
     internal class Base
     {

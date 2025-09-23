@@ -10,6 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="FeatureFiles\**" />
+    <Compile Remove="TestObjects\**" />
+    <EmbeddedResource Remove="FeatureFiles\**" />
+    <EmbeddedResource Remove="TestObjects\**" />
+    <None Remove="FeatureFiles\**" />
+    <None Remove="TestObjects\**" />
+    <ReqnrollFeatureFiles Remove="FeatureFiles\**" />
+    <ReqnrollFeatureFiles Remove="TestObjects\**" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="FeatureFiles\**" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="TestObjects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Appium.WebDriver" Version="8.0.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -31,11 +44,6 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="FeatureFiles\" />
-    <Folder Include="TestObjects\" />
   </ItemGroup>
 
 </Project>

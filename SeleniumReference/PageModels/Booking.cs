@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumReference.PageObjects
+namespace SeleniumReference.PageModels
 {
     public class Booking
     {
