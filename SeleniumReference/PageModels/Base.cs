@@ -3,7 +3,8 @@ using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumReference.PageModels
 {
-    internal class Base
+    internal static class Base
     {
+
     }
 }
