@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace SeleniumReference.PageObjects
+namespace SeleniumReference.PageObjectModels
 {
     public abstract class BasePage
     {
