@@ -3,7 +3,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumReference.PageObjectModels
 {
-    internal class Room : BasePage
+    internal class RoomPage : BasePage
     {
         private readonly By reserveNow1Button = By.Id(@"doReservation");
         private readonly By firstNameTextbox = By.Name(@"firstname");
@@ -13,7 +13,7 @@ namespace SeleniumReference.PageObjectModels
         private readonly By reserveNow2Button = By.ClassName(@"btn btn-primary w-100 mb-3");
         private readonly By cancelButton = By.ClassName(@"btn btn-secondary w-100 mb-3");
 
-        public Room(IWebDriver driver, WebDriverWait wait) : base(driver, wait)
+        public RoomPage(IWebDriver driver, WebDriverWait wait) : base(driver, wait)
         {
         }
 

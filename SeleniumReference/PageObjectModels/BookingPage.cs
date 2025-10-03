@@ -3,7 +3,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumReference.PageObjectModels
 {
-    internal class Booking : BasePage
+    internal class BookingPage : BasePage
     {
         private readonly By pageSentinel = By.ClassName(@"mb-3");
         private readonly By bookNowButton = By.LinkText(@"Book now");
@@ -14,7 +14,7 @@ namespace SeleniumReference.PageObjectModels
         private readonly By messageDescriptionTextBox = By.Id(@"description");
         private readonly By messageSubmitButton = By.TagName(@"button");
 
-        public Booking(IWebDriver driver, WebDriverWait wait) : base(driver, wait)
+        public BookingPage(IWebDriver driver, WebDriverWait wait) : base(driver, wait)
         {
         }
 
