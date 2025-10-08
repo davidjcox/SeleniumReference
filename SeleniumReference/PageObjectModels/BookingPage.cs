@@ -49,6 +49,11 @@ namespace SeleniumReference.PageObjectModels
             GetVisibleWebElements(bookNowButton)[(int)Rooms.Suite].Click();
         }
 
+        /// <summary>
+        /// Fills the 'Send Us a Message' form with message parts and submits it.
+        /// Keys do not have to be named, because message parts are accessed by index.
+        /// </summary>
+        /// <param name="messageParts">String List of Name, Email, Phone, Subject, and Message.</param>
         internal void SendAMessage(List<string> messageParts)
         {
             SendKeysToElement(GetVisibleWebElement(messageNameTextbox), messageParts[(int)Parts.Name]);
