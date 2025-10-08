@@ -25,6 +25,11 @@ namespace SeleniumReference.PageObjectModels
             Phone
         }
 
+        /// <summary>
+        /// Displays the 'Book This Room' form, fills it with customer information, and submits it.
+        /// Keys do not have to be named, because customer information is accessed by index.
+        /// </summary>
+        /// <param name="customerInformation">String List of First Name, Last Name, Email, and Phone.</param>
         internal void ReserveRoom(List<string> customerInformation)
         {
             GetVisibleWebElement(reserveNow1Button).Click();
@@ -35,6 +40,9 @@ namespace SeleniumReference.PageObjectModels
             GetVisibleWebElement(reserveNow2Button).Click();
         }
 
+        /// <summary>
+        /// Displays the 'Book This Room' form but cancels without filling it out.
+        /// </summary>
         internal void DoNotReserveRoom()
         {
             GetVisibleWebElement(reserveNow1Button).Click();
