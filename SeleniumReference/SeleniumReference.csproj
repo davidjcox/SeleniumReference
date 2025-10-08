@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -10,15 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="FeatureFiles\**" />
     <Compile Remove="TestObjects\**" />
-    <EmbeddedResource Remove="FeatureFiles\**" />
     <EmbeddedResource Remove="TestObjects\**" />
-    <None Remove="FeatureFiles\**" />
     <None Remove="TestObjects\**" />
-    <ReqnrollFeatureFiles Remove="FeatureFiles\**" />
     <ReqnrollFeatureFiles Remove="TestObjects\**" />
-    <ReqnrollObsoleteCodeBehindFiles Remove="FeatureFiles\**" />
     <ReqnrollObsoleteCodeBehindFiles Remove="TestObjects\**" />
   </ItemGroup>
 
@@ -44,6 +39,10 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="FeatureFiles\" />
   </ItemGroup>
 
 </Project>
