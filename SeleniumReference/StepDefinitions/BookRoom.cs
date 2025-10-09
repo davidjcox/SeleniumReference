@@ -1,12 +1,105 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Support.UI;
+using Reqnroll;
+using SeleniumReference.PageObjectModels;
 
 namespace SeleniumReference.StepDefinitions
 {
     internal class BookRoom
     {
+        private readonly IWebDriver _driver;
+        private readonly WebDriverWait _wait;
+        private BookingPage _bookingPage;
+        private RoomPage _roomPage;
+
+        public BookRoom()
+        {
+            _driver = new EdgeDriver();
+            _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
+            _bookingPage = new BookingPage(_driver, _wait);
+            _roomPage = new RoomPage(_driver, _wait);
+        }
+
+        [Given("I have navigated to the booking site")]
+        public void GivenIHaveNavigatedToTheBookingSite()
+        {
+            _bookingPage.NavigateTo(_bookingPage.pageUrl);
+
+            Assert.That(_bookingPage.IsBookingSite());
+        }
+
+        [When("I select the option to book a Single room")]
+        public void WhenISelectTheOptionToBookASingleRoom()
+        {
+            _bookingPage.ChooseSingleRoom();
+        }
+
+        [When("I complete the room reservation form")]
+        public void WhenICompleteTheRoomReservationForm()
+        {
+            List<string> customerInformation = new List<string>()
+            {
+                "Jack",
+                "Tripper",
+                "jtripper@email.com",
+                "16125551212"
+            };
+
+            _roomPage.ReserveRoom(customerInformation);
+        }
+
+        [Then("the room booking confirmation displays")]
+        public void ThenTheRoomBookingConfirmationDisplays()
+        {
+            throw new PendingStepException();
+        }
+
+        [When("I select the option to book a Double room")]
+        public void WhenISelectTheOptionToBookADoubleRoom()
+        {
+            _bookingPage.ChooseDoubleRoom();
+        }
+
+        [When("I select the option to book a Suite room")]
+        public void WhenISelectTheOptionToBookASuiteRoom()
+        {
+            _bookingPage.ChooseSuiteRoom();
+        }
+
+        [When("I cancel before booking the room")]
+        public void WhenICancelBeforeBookingTheRoom()
+        {
+            _roomPage.DoNotReserveRoom();
+        }
+
+        [Then("the option to book the room displays again")]
+        public void ThenTheOptionToBookTheRoomDisplaysAgain()
+        {
+            throw new PendingStepException();
+        }
+
+        [When("I fill out and submit the send a message form")]
+        public void WhenIFillOutAndSubmitTheSendAMessageForm()
+        {
+            List<string> messageParts = new List<string>()
+            {
+                "Jack Tripper",
+                "jtripper@email.com",
+                "16125551212",
+                "Directions to B&B",
+                "I seem to have gotten lost on the way to the B&B. Could you give me directions?"
+            };
+
+            _bookingPage.SendAMessage(messageParts);
+        }
+
+        [Then("a message confirmation is displayed")]
+        public void ThenAMessageConfirmationIsDisplayed()
+        {
+            throw new PendingStepException();
+        }
     }
 }

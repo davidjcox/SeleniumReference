@@ -1,18 +1,20 @@
-﻿using OpenQA.Selenium;
+﻿using System.Runtime.InteropServices;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumReference.PageObjectModels
 {
     internal class BookingPage : BasePage
     {
-        private readonly By pageSentinel = By.ClassName(@"mb-3");
-        private readonly By bookNowButton = By.LinkText(@"Book now");
-        private readonly By messageNameTextbox = By.Id(@"name");
-        private readonly By messageEmailTextbox = By.Id(@"email");
-        private readonly By messagePhoneTextbox = By.Id(@"phone");
-        private readonly By messageSubjectTextbox = By.Id(@"subject");
-        private readonly By messageDescriptionTextBox = By.Id(@"description");
-        private readonly By messageSubmitButton = By.TagName(@"button");
+        internal readonly Uri pageUrl = new Uri(@"https://automationintesting.online/");
+        internal readonly By pageSentinel = By.ClassName(@"mb-3");
+        internal readonly By bookNowButton = By.LinkText(@"Book now");
+        internal readonly By messageNameTextbox = By.Id(@"name");
+        internal readonly By messageEmailTextbox = By.Id(@"email");
+        internal readonly By messagePhoneTextbox = By.Id(@"phone");
+        internal readonly By messageSubjectTextbox = By.Id(@"subject");
+        internal readonly By messageDescriptionTextBox = By.Id(@"description");
+        internal readonly By messageSubmitButton = By.TagName(@"button");
 
         public BookingPage(IWebDriver driver, WebDriverWait wait) : base(driver, wait)
         {
@@ -32,6 +34,11 @@ namespace SeleniumReference.PageObjectModels
             Phone,
             Subject,
             Message
+        }
+
+        internal bool IsBookingSite()
+        {
+            return IsExpectedUrl(pageUrl) && IsExpectedPage(pageSentinel);
         }
 
         internal void ChooseSingleRoom()

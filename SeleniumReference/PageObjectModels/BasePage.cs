@@ -23,7 +23,6 @@ namespace SeleniumReference.PageObjectModels
         internal void NavigateTo(Uri url)
         {
             _driver.Navigate().GoToUrl(url);
-
             _driver.Manage().Window.FullScreen();
         }
 
@@ -34,7 +33,7 @@ namespace SeleniumReference.PageObjectModels
         /// <returns>bool</returns>
         internal bool IsExpectedUrl(Uri pageUrl)
         {
-            return _driver.Url.ToString().Equals(pageUrl.ToString());
+            return _driver.Url.Equals(pageUrl);
         }
 
         /// <summary>
