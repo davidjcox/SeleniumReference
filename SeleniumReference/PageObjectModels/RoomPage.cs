@@ -5,13 +5,14 @@ namespace SeleniumReference.PageObjectModels
 {
     internal class RoomPage : BasePage
     {
-        private readonly By reserveNow1Button = By.Id(@"doReservation");
-        private readonly By firstNameTextbox = By.Name(@"firstname");
-        private readonly By lastNameTextbox = By.Name(@"lastname");
-        private readonly By emailTextbox = By.Name(@"email");
-        private readonly By phoneTextbox = By.Name(@"phone");
-        private readonly By reserveNow2Button = By.ClassName(@"btn btn-primary w-100 mb-3");
-        private readonly By cancelButton = By.ClassName(@"btn btn-secondary w-100 mb-3");
+        internal readonly By reserveNow1Button = By.Id(@"doReservation");
+        internal readonly By firstNameTextbox = By.Name(@"firstname");
+        internal readonly By lastNameTextbox = By.Name(@"lastname");
+        internal readonly By emailTextbox = By.Name(@"email");
+        internal readonly By phoneTextbox = By.Name(@"phone");
+        internal readonly By reserveNow2Button = By.ClassName(@"btn btn-primary w-100 mb-3");
+        internal readonly By bookingConfirmed = By.ClassName(@"card-title fs-4 fw-bold mb-3");
+        internal readonly By cancelButton = By.ClassName(@"btn btn-secondary w-100 mb-3");
 
         public RoomPage(IWebDriver driver, WebDriverWait wait) : base(driver, wait)
         {
