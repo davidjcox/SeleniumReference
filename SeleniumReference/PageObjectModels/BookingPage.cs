@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumReference.PageObjectModels

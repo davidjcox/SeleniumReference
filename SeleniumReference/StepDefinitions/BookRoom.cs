@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Support.UI;
 using Reqnroll;
@@ -8,7 +6,8 @@ using SeleniumReference.PageObjectModels;
 
 namespace SeleniumReference.StepDefinitions
 {
-    internal class BookRoom
+    [Binding]
+    internal class BookRoom : IDisposable
     {
         private readonly IWebDriver _driver;
         private readonly WebDriverWait _wait;
@@ -100,6 +99,15 @@ namespace SeleniumReference.StepDefinitions
         public void ThenAMessageConfirmationIsDisplayed()
         {
             throw new PendingStepException();
+        }
+
+        public void Dispose()
+        {
+            if (_driver != null)
+            {
+                _driver.Quit();
+                _driver.Dispose();
+            }
         }
     }
 }
