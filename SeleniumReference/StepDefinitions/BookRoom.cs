@@ -11,15 +11,15 @@ namespace SeleniumReference.StepDefinitions
     {
         private readonly IWebDriver _driver;
         private readonly WebDriverWait _wait;
-        private BookingPage _bookingPage;
-        private RoomPage _roomPage;
+        private HomePage _bookingPage;
+        private AccountServicesPage _roomPage;
 
         public BookRoom()
         {
             _driver = new EdgeDriver();
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
-            _bookingPage = new BookingPage(_driver, _wait);
-            _roomPage = new RoomPage(_driver, _wait);
+            _bookingPage = new HomePage(_driver, _wait);
+            _roomPage = new AccountServicesPage(_driver, _wait);
         }
 
         [Given("I have navigated to the booking site")]
@@ -27,7 +27,7 @@ namespace SeleniumReference.StepDefinitions
         {
             _bookingPage.NavigateTo(_bookingPage.pageUrl);
 
-            Assert.That(_bookingPage.IsBookingSite());
+            Assert.That(_bookingPage.IsExpectedSite());
         }
 
         [When("I select the option to book a Single room")]
