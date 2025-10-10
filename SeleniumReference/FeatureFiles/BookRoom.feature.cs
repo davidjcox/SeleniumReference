@@ -214,7 +214,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.WhenAsync("I select the option to book a Suite room", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 23
- await testRunner.AndAsync("I cancel with filling out the room reservation form", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("I complete the room reservation form", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 24
  await testRunner.ThenAsync("the room booking confirmation displays", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
