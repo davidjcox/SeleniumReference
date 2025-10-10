@@ -39,6 +39,12 @@ namespace SeleniumReference.PageObjectModels
             GetVisibleWebElement(openNewAccountButton).Click();
         }
 
+        internal string GetNewAccountId()
+        {
+            return GetVisibleWebElement(newAccountIdLink).Text;
+        }
+
+
         /// <summary>
         /// Displays the 'Open New Account' form, selects account type, fills it with customer information, and submits it.
         /// </summary>
