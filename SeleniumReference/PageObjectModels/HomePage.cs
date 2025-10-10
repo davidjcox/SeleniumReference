@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumReference.UtilityModels;
 
 namespace SeleniumReference.PageObjectModels
 {
@@ -25,45 +26,30 @@ namespace SeleniumReference.PageObjectModels
         {
         }
 
-        enum CustInfo
-        {
-            FirstName,
-            LastName,
-            Address,
-            City,
-            State,
-            ZipCode,
-            PhoneNumber,
-            SSN,
-            UserName,
-            Password1,
-            Password2
-        }
-
         internal bool IsExpectedSite()
         {
             return IsExpectedUrl(pageUrl) && IsExpectedPage(pageSentinel);
         }
 
         /// <summary>
-        /// Fills the 'Send Us a Message' form with message parts and submits it.
-        /// Keys do not have to be named, because message parts are accessed by index.
+        /// Fills in the new account registration form with customer information and submits it.
+        /// Customer information list items must be added according to CustInfo order because form is filled by iterating list index.
         /// </summary>
-        /// <param name="customerInformation">String List of First Name, Last Name, Address, City, State, Zip Code, Phone Number, SSN, Username, Password, and Confirmed Password.</param>
-        internal void SendAMessage(List<string> customerInformation)
+        /// <param name="customerInformation">String List of First Name, Last Name, (street) Address, City, State, Zip Code, Phone Number, SSN, Username, Password, and (confirmed) Password.</param>
+        internal void RegisterNewAccount(CustomerInformation customerInformation)
         {
             GetVisibleWebElement(registerLink).Click();
-            SendKeysToElement(GetVisibleWebElement(firstNameTextbox), customerInformation[(int)CustInfo.FirstName]);
-            SendKeysToElement(GetVisibleWebElement(lastNameTextbox), customerInformation[(int)CustInfo.LastName]);
-            SendKeysToElement(GetVisibleWebElement(addressTextbox), customerInformation[(int)CustInfo.Address]);
-            SendKeysToElement(GetVisibleWebElement(cityTextbox), customerInformation[(int)CustInfo.City]);
-            SendKeysToElement(GetVisibleWebElement(stateTextBox), customerInformation[(int)CustInfo.State]);
-            SendKeysToElement(GetVisibleWebElement(zipCodeTextbox), customerInformation[(int)CustInfo.ZipCode]);
-            SendKeysToElement(GetVisibleWebElement(phoneNumberTextbox), customerInformation[(int)CustInfo.PhoneNumber]);
-            SendKeysToElement(GetVisibleWebElement(ssnTextbox), customerInformation[(int)CustInfo.SSN]);
-            SendKeysToElement(GetVisibleWebElement(usernameTextbox), customerInformation[(int)CustInfo.UserName]);
-            SendKeysToElement(GetVisibleWebElement(passwordTextbox), customerInformation[(int)CustInfo.Password1]);
-            SendKeysToElement(GetVisibleWebElement(confirmTextbox), customerInformation[(int)CustInfo.Password2]);
+            SendKeysToElement(GetVisibleWebElement(firstNameTextbox), customerInformation.FirstName);
+            SendKeysToElement(GetVisibleWebElement(lastNameTextbox), customerInformation.LastName);
+            SendKeysToElement(GetVisibleWebElement(addressTextbox), customerInformation.StreetAddress);
+            SendKeysToElement(GetVisibleWebElement(cityTextbox), customerInformation.City);
+            SendKeysToElement(GetVisibleWebElement(stateTextBox), customerInformation.State);
+            SendKeysToElement(GetVisibleWebElement(zipCodeTextbox), customerInformation.ZipCode);
+            SendKeysToElement(GetVisibleWebElement(phoneNumberTextbox), customerInformation.PhoneNumber);
+            SendKeysToElement(GetVisibleWebElement(ssnTextbox), customerInformation.Ssn);
+            SendKeysToElement(GetVisibleWebElement(usernameTextbox), customerInformation.Username);
+            SendKeysToElement(GetVisibleWebElement(passwordTextbox), customerInformation.Password1);
+            SendKeysToElement(GetVisibleWebElement(confirmTextbox), customerInformation.Password2);
             GetVisibleWebElement(registerButton).Click();
         }
     }
